@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Using an unreleased gem version with Bundler."
+title: "Using an unreleased gem version with Bundler"
 date: 2011-05-06 23:06
 comments: true
 categories: ruby bundler

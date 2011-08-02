@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Color scheme for Multitail and Pow logs."
+title: "Color scheme for Multitail and Pow logs"
 date: 2011-06-28 23:40
 comments: true
 categories: commandline ruby pow
