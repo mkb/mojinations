@@ -7,7 +7,7 @@ categories: mac unix
 ---
 I know lots of smart developers who have switched from MacPorts to Homebrew.  I don't think the switch makes sense.  Let's add up the pros and cons.
 
-## Homebrew uses OS libs instead of building dependencies.
+## Homebrew uses OS libs instead of building dependencies
 
 That's not a feature, that's a bug.  Consider the ramifications:
 
@@ -21,7 +21,7 @@ So using the system's native libraries and tools provides negligible benefit and
 
 The MacOS built-in `screen` binary is slightly troubled, so I need to install another.  Homebrew can't help me.  If you're perfectly happy with the native screen, then this isn't applicable, but in my case the point goes to MacPorts.
 
-## Homebrew installs packages into their own isolated prefixes and then symlinks into /usr/local.
+## Homebrew installs packages into their own isolated prefixes and then symlinks into /usr/local
 
 I've repeatedly seen bright people tout this as an advantage which is befuddling.  Isolated prefix:  good.  Symlinking everything into `/usr/local`:  bad.  This means that to remove Homebrew from a machine, I can't just nuke a single directory.  I have to deal with symlink turds all over the place.  Brew can clean up the symlinks before I delete the executable, but what if the executable is broken?  Or what if I forget?  Or never knew?  That's a lot of mess to clean up.
 
