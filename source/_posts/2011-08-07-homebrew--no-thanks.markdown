@@ -23,7 +23,7 @@ The MacOS built-in `screen` binary is slightly troubled, so I need to install an
 
 ## Homebrew installs packages into their own isolated prefixes and then symlinks into /usr/local.
 
-I've repeatedly seen bright people tout this as an advantage which is befuddling.  Isolated prefix:  good.  Symlinking everything into `/usr/local`:  bad.  This means that to remove Homebrew from a machine, rather than nuking a single directory, I have to deal with symlink turds all over the place.  Brew can clean up the symlinks before I delete the executable, but what if the executable is broken?  Or what if I forget?  Or never knew?  That's a lot of mess to clean up.
+I've repeatedly seen bright people tout this as an advantage which is befuddling.  Isolated prefix:  good.  Symlinking everything into `/usr/local`:  bad.  This means that to remove Homebrew from a machine, I can't just nuke a single directory.  I have to deal with symlink turds all over the place.  Brew can clean up the symlinks before I delete the executable, but what if the executable is broken?  Or what if I forget?  Or never knew?  That's a lot of mess to clean up.
 
 Older versions of MacPorts left some residue around the system, but were pretty well behaved.  Current versions are very well behaved.  MacPorts isn't perfect in this regard, but beats Homebrew hands down.
 
@@ -31,7 +31,7 @@ Older versions of MacPorts left some residue around the system, but were pretty 
 
 Yes, it's worse than just symlinks.  Homebrew wants to take over `/usr/local` which is commonly used for other third-party packages.  Homebrew users are expected to `chown` `/usr/local` to their own ID and troubleshooting advice commonly advises Homebrew users to remove `/usr/local` entirely.  Ceding control of `/usr/local` to Homebrew means trouble when additional packages are installed into `/usr/local` or when the machine has multiple users.
 
-When told that taking over `/usr/local` is a terrible idea, Homebrew apologists respond with "that's only a suggestion.  You are free to use whatever install location you would like."  That's not quite true.  `/usr/local` isn't a suggestion, it's the default.  Customization is nice, but well-behaved software picks reasonable defaults.  The Homebrew installation instructions even go so far as to say "Pick another prefix at your peril!"  That's more than a simple suggestion.
+When told that taking over `/usr/local` is a terrible idea, Homebrew apologists respond with "That's only a suggestion.  You are free to use whatever install location you would like."  That's not quite true.  `/usr/local` isn't a suggestion, it's the default.  Customization is nice, but well-behaved software picks reasonable defaults.  The Homebrew installation instructions even go so far as to say "Pick another prefix at your peril!"  That's more than a simple suggestion.
 
 ## Way better command line user interface
 
@@ -39,7 +39,7 @@ I'm perfectly content with MacPorts' CLI, but perhaps I don't know what I'm miss
 
 ## Homebrew's recipes are in Ruby, while MacPorts' are in Tcl
 
-I like Ruby, I dislike Tcl.  However, the language used by my ports system is moot.  If I need to know what language my ports system uses, then the ports system has failed in its primary mission. 
+I like Ruby, I dislike Tcl.  However, the language used by my ports system is moot.  If I need to know what language my ports system uses, then the ports system has failed in its primary mission: deal with the details so I can think about something else.
 
 ## Homebrew and its installation scripts are hosted at Github and have good GitHub integration.
 
