@@ -33,7 +33,7 @@ Yes, it's worse than just symlinks.  Homebrew wants to take over `/usr/local` wh
 
 When told that taking over `/usr/local` is a terrible idea, Homebrew apologists respond with "That's only a suggestion.  You are free to use whatever install location you would like."  That's not quite true.  `/usr/local` isn't a suggestion, it's the default.  Customization is nice, but well-behaved software picks reasonable defaults.  The Homebrew installation instructions even go so far as to say "Pick another prefix at your peril!"  That's more than a simple suggestion.
 
-## Way better command line user interface
+## Homebrew said to have a better command line user interface
 
 I'm perfectly content with MacPorts' CLI, but perhaps I don't know what I'm missing.  I'll give the points here to Homebrew.
 
@@ -43,7 +43,7 @@ I like Ruby, I dislike Tcl.  However, the language used by my ports system is mo
 
 ## Homebrew and its installation scripts are hosted at Github and have good GitHub integration.
 
-I like GitHub, but how does that affect Homebrew's suitability as a package manager?  Is there some use case I'm missing?
+Homebrew's GitHub integration allows for easy use of [third-party formulae](https://github.com/adamv/homebrew-alt).  While not compelling, this is quite interesting and worth keeping an eye on.
 
 ## Pure superficiality
 
