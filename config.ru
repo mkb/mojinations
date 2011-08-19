@@ -34,7 +34,7 @@ use Rack::DirectoryIndex
 run Rack::Directory.new($root + '/public')
 
 
-changed in the end of the file because i like chocolate
+changed in the end of the file because i like music
 andrew eats bad cheese
 yes i do, dammit.
 
