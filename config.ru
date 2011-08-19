@@ -37,3 +37,5 @@ run Rack::Directory.new($root + '/public')
 added to the end of the file
 andrew eats bad cheese
 
+
+some more stuff on the end
