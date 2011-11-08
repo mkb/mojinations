@@ -13,7 +13,7 @@ Do this:
     gem 'nokogiri'
     gem 'w3c_validators', "1.1.1", :git => 'git://github.com/alexdunae/w3c_validators.git'
 ```
-
+<!--more-->
 ## Why?
 
 After experiencing trouble with the w3c_validators gem, I discovered that the problem was a [known bug](https://github.com/alexdunae/w3c_validators/issues/3).  A fix has been committed, but not yet released in gem form.  I could have gone with an older version of the gem, but instead tweaked my Gemfile (ie, Bundler) to use the latest and greatest code.

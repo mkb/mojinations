@@ -7,6 +7,8 @@ categories: mac unix
 ---
 I know lots of smart developers who have switched from MacPorts to Homebrew.  I don't think the switch makes sense.  Let's add up the pros and cons.
 
+<!--more-->
+
 ## Homebrew uses OS libs instead of building dependencies
 
 That's not a feature, that's a bug.  Consider the ramifications:

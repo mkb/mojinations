@@ -6,7 +6,7 @@ comments: true
 categories: 
 ---
 My colleague [Joshua Lane](http://www.joshualane.com/) just switched to using a Mac, so I thought now might be a good time to talk about the tools I use for development.  Josh has actually seen most of these, but maybe there are one or two you (or he) haven't.
-
+<!--more-->
 ## The core
 I spend most of my day staring at:
 
