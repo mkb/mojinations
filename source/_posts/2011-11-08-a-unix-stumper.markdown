@@ -19,7 +19,7 @@ deploy@[redacted] ~ $ groups
 deploy rvm
 {% endcodeblock %}
 
-However, when I invoke a script from a Resque worker running as that user, I only
+However, when I invoke a script from a [Resque](https://github.com/defunkt/resque) worker running as that user, I only
 see one of the two groups:
 
 {% codeblock %}
@@ -28,6 +28,8 @@ uid=1000(deploy) gid=1000(deploy) groups=1000(deploy)
 + groups
 deploy
 {% endcodeblock %}
+
+Resque is spawned by [God](http://god.rubyforge.org/), which is spawned by inittab.
 
 Of course the first thing I did was bounce Resque, then re-bounce after bouncing
 the God process invoking Resque.  No love.  I've seen the same behavior on every
