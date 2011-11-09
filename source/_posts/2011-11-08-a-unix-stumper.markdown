@@ -5,6 +5,12 @@ date: 2011-11-08 10:38
 comments: true
 categories: 
 ---
+
+>**EDIT:** Problem solved.  [Noah](https://twitter.com/#!/bleah) and [Dan](http://twitter.com/#!/dpiddee) hit the nail
+on the head.  Updating the God config to explicitly use the correct gid rather than relying
+on picking up additional groups from /etc/group did the trick.  I still wish that wan't
+necessary, but a working setup is good enough for me.
+
 If you have a good understanding of Unix process spawning and group affiliation, I could use your help.
 <!--more-->
 
