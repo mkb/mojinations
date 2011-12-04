@@ -3,7 +3,9 @@
 .sass-cache
 .gist-cache
 .pygments-cache
+_code_cache
 _deploy
+_gist_cache
 public
 sass.old
 source.old
