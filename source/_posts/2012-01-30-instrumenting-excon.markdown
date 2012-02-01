@@ -6,13 +6,13 @@ comments: true
 categories:
 ---
 
-[Excon](https://github.com/geemus/excon) is a Ruby gem for making HTTP requests.  A few features make excon a better choice than Net::HTTP:
+At Engine Yard we make heavy use of [fog](https://github.com/fog/fog) to interface with back-end cloud providers.  Fog in turn uses [excon](https://github.com/geemus/excon) to make HTTP requests.  A few features make excon a better choice than Net::HTTP:
 
-* Persistent connections, which allows for much better performance when making many requests to the same host.
+* Better at reusing connections.
 * Automatic retries for idempotent requests.
 * Easy to stub for your unit tests.
 
-My coworkers and I at Engine Yard needed to measure the performance of calls made with excon so we added one more feature:  instrumentation.
+My coworkers and I at Engine Yard needed to measure the performance of fog's HTTP calls so we added one more feature to excon:  instrumentation.
 <!--more-->
 
 ## Enter ActiveSupport::Notifications
@@ -39,10 +39,10 @@ If :instrumentor_name is omitted, the base name defaults to "excon".  Excon gene
 
 ## Too many gems!
 
-Suppose you don't want to include activesupport in your application.  No problem.  Simply define a class which responds to the #insrument method and record incoming events however you please.
+Suppose you don't want to include activesupport in your application.  No problem.  Simply define a class which responds to the #instrument method and record incoming events however you please.
 
 {% gist 1708120 %}
 
 ## Go forth and conquer
 
-Hopefully I've given you enough information to start measuring excon for your own purposes.  In a future post I'll discuss how we used this excon feature to make pretty graphs of our calls to AWS.
+Hopefully I've given you enough information to start measuring excon for your own purposes.  In a future post I'll discuss how we used this excon feature to make pretty graphs of our fog calls to AWS.
