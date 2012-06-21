@@ -1,65 +1,65 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
-h1 {
-  font-family: $serif;
+body > header {
+  padding-top:0.5em;
+  padding-bottom:.5em;
 }
 body > header h1 {
   font-family: $sans;
+}
+article header p.meta {
+  letter-spacing: .2em;
 }
 
 hgroup {
   a {
     text-decoration: none;
+    white-space: nowrap;
   }
   a span {
     text-decoration: none;
-    -webkit-transition-property:color, background;  
-    -webkit-transition-duration: .4s, .2s;  
-    -webkit-transition-timing-function: linear, ease-in;  
-
   }
   span {
-    color: #fff;
+    color: $light-yellow;
+    background-color: darken($color-heavy-smoke,10);
     font-family: 'Lekton', san-serif;
-    font-size: 3em;
+    font-size: 2em;
     line-height: 1em;
     display: inline-block;
     text-align:center;
     padding: .1em .3em .1em;
-    margin-right: .1em;
+    @include box-shadow(rgba($light-black, 0.4) 0 0 15px);
+    &:nth-child(5n) {
+      color: $light-yellow;
+    }
+    &:nth-child(5n-1) {
+      color: $light-green;
+    }
+    &:nth-child(5n-2) {
+      color: $light-orange;
+    }
+    &:nth-child(5n-3) {
+      color: $light-red;
+    }
+    &:nth-child(5n-4) {
+      color: $light-blue;
+    }
   }
-
-  span:nth-child(4n) {
-    /* beige */
-    background-color: #BC867C;
-  }
-
-  span:nth-child(4n-1) {
-    /* hot pink */
-    background-color: #D13250;
-  }
-
-  span:nth-child(4n-2) {
-    /* dark brown */
-    background-color: #2A2522;
-  }
-
-  span:nth-child(4n-3) {
-    /* burgandy */
-    background-color: #6F2439;
-  }
-
-  a:hover span:nth-child(n){
-    color: #fff;
-    background:#2A2522;
+  a:hover span {
+    @include box-shadow(rgba($light-black, 0.6) 0 0 15px);
   }
 
   .tagline {
-    color: #BC867C;
+    color: $light-black;
     font-family: 'Lekton', san-serif;
     margin-top: .4em;
     text-align: left;
     width: 100%;
   }
 
+}
+
+
+body > footer a:visited {
+color: $light-black;
 }

@@ -14,11 +14,16 @@ $color-smoothie: #6F2439;
 $color-loving-kiss: #D13250;
 $color-beige-rose: #BC867C;
 $color-orbit: #D7E9B7;
-$header-bg: $color-heavy-smoke;
-$subtitle-color: lighten($header-bg, 58);
-$nav-bg: desaturate(lighten($color-smoothie, 18), 5);
-$nav-bg-front: none;
-$nav-bg-back: linear-gradient(lighten($nav-bg, 8), $nav-bg, darken($nav-bg, 11));
+
+//http://www.colourlovers.com/palette/260369/Lost_Talents
+$light-green: #DAF7D5;
+$light-yellow: #DEDD92;
+$light-orange: #DEBB92;
+$light-red: #C28080;
+$light-black: #695B5B;
+$light-blue: #9EE3C7;
+$medium-blue: #8BA99F;
+
 //$sidebar-bg: desaturate(#eceff5, 8);
 //$sidebar-link-color: saturate(#526f9a, 10);
 //$sidebar-link-color-hover: darken(#7ab662, 9);
@@ -31,8 +36,8 @@ $nav-bg-back: linear-gradient(lighten($nav-bg, 8), $nav-bg, darken($nav-bg, 11))
 //$solarized: light;
 
 /* If you want to tweak the Solarized colors you can do that here */
-//$base03:          #002b36; //darkest blue
-//$base02:          #073642; //dark blue
+$base03:          #000; //darkest blue
+$base02:          darken($color-heavy-smoke, 5); //dark blue
 //$base01:          #586e75; //darkest gray
 //$base00:          #657b83; //dark gray
 //$base0:           #839496; //medium gray
@@ -53,3 +58,86 @@ $nav-bg-back: linear-gradient(lighten($nav-bg, 8), $nav-bg, darken($nav-bg, 11))
 //$pre-bg: $base03;
 //$pre-border: darken($base02, 5);
 //$pre-color: $base1;
+$noise-bg: image-url('noise.png') top left !default;
+$img-border: inline-image('dotted-border.png');
+
+// Main Link Colors
+$link-color: $light-blue !default;
+$link-color-hover: adjust-color($link-color, $lightness: 10, $saturation: 25) !default;
+$link-color-visited: $medium-blue !default;
+$link-color-active: adjust-color($link-color-hover, $lightness: -15) !default;
+
+// Main Section Colors
+$main-bg: $color-heavy-smoke !default;
+$page-bg: darken($color-heavy-smoke, 5) !default;
+$header-bg: $color-heavy-smoke;
+$article-border: #eeeeee !default;
+
+
+$text-color: #c8c0c0 !default;
+$text-color-light: #aaa !default;
+$type-border: #ddd !default;
+
+/* Navigation */
+$nav-bg: darken($color-heavy-smoke,10);
+$nav-bg-front: $nav-bg !default;
+$nav-bg-back: $nav-bg !default;
+$nav-color: $color-beige-rose !default;
+$nav-color-hover: darken($nav-color, 25) !default;
+$nav-placeholder: desaturate(darken($nav-bg, 10), 15) !default;
+$nav-border: darken($nav-bg, 10) !default;
+$nav-border-top: lighten($nav-bg, 5) !default;
+$nav-border-bottom: darken($nav-bg, 5) !default;
+$nav-border-left: $nav-bg !default;
+$nav-border-right: $nav-bg !default;
+
+/* Sidebar colors */
+$sidebar-bg: darken($color-heavy-smoke, 3) !default;
+$sidebar-link-color: $link-color !default;
+$sidebar-link-color-hover: $link-color-hover !default;
+$sidebar-link-color-active: $link-color-active !default;
+$sidebar-color: change-color(mix($text-color, $sidebar-bg, 80), $hue: hue($sidebar-bg), $saturation: saturation($sidebar-bg)/2) !default;
+$sidebar-border: desaturate(darken($sidebar-bg, 7), 10) !default;
+$sidebar-border-hover: darken($sidebar-bg, 7) !default;
+$sidebar-link-color-subdued: lighten($sidebar-color, 20) !default;
+$sidebar-link-color-subdued-hover: $sidebar-link-color-hover !default;
+$twitter-status-link: lighten($sidebar-link-color-subdued, 15) !default;
+
+$footer-bg: #000 !default;
+$footer-bg-front: none !default; 
+$footer-bg-back: $footer-bg !default;
+$footer-color: $light-black !default;
+$footer-color-hover: lighten($footer-color, 10) !default;
+$footer-border-top: lighten($footer-bg, 15) !default;
+$footer-border-bottom: darken($footer-bg, 15) !default;
+$footer-link-color: darken($footer-bg, 38) !default;
+$footer-link-color-hover: lighten($footer-color, 25) !default;
+$page-border-bottom: darken($footer-bg, 5) !default;
+
+
+/* Core theme application */
+
+a {
+  @include link-colors($link-color, $hover: $link-color-hover, $focus: $link-color-hover, $visited: $link-color-visited, $active: $link-color-active);
+}
+aside.sidebar a {
+  @include link-colors($sidebar-link-color, $hover: $sidebar-link-color-hover, $focus: $sidebar-link-color-hover, $active: $sidebar-link-color-active);
+  text-decoration: none;
+}
+a {
+  @include transition(color .3s);
+}
+
+html {
+  background: $page-bg image-url('line-tile.png') top left;
+}
+body {
+  > div {
+    background: $sidebar-bg $noise-bg;
+    border-bottom: 1px solid $page-border-bottom;
+    > div {
+      background: $main-bg $noise-bg;
+      border-right: 1px solid $sidebar-border;
+    }
+  }
+}
