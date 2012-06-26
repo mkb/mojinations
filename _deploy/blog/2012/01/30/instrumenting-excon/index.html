@@ -123,8 +123,8 @@
 <p>I won&#8217;t re-create the RDoc here, but the basic idea is you can instrument blocks of code by wrapping them in an #instrument call like so:</p>
 
 <div><script src='https://gist.github.com/1707877.js?file='></script>
-<noscript><pre><code>ActiveSupport::Notifications.instrument(&quot;cheezburger.haz&quot;, :extra =&gt; :information) do
-  cheezburger = Monorail.get_cheezburger()
+<noscript><pre><code>ActiveSupport::Notifications.instrument(&quot;cheezburger&quot;, :extra =&gt; :information) do
+  # Do stuff.
 end
 </code></pre></noscript></div>
 
@@ -144,14 +144,14 @@ end</code></pre></noscript></div>
 <p>When you include an instrumentor class in the Excon constructor you can then subscribe to excon&#8217;s events:</p>
 
 <div><script src='https://gist.github.com/1707962.js?file='></script>
-<noscript><pre><code>Excon.new('http://geemus.com', :instrumentor =&gt; ActiveSupport::Notifications)
+<noscript><pre><code>connection = Excon.new('http://icanhascheezburger.com/', 
+    :instrumentor =&gt; ActiveSupport::Notifications,
+    :instrumentor_name =&gt; 'myapp.excon')
 
 # Elsewhere...
-ActiveSupport::Notifications.subscribe(/excon/) do |*args|
+ActiveSupport::Notifications.subscribe(/myapp.excon/) do |*args|
   puts &quot;Excon did stuff!&quot;
-end
-
-</code></pre></noscript></div>
+end</code></pre></noscript></div>
 
 
 <p>If :instrumentor_name is omitted, the base name defaults to &#8220;excon&#8221;.  Excon generates three different events:  excon.request, excon.retry, and excon.error.  Requests and retries each have associated durations, errors do not.  By digging into args we can determine how long the request took along with other assorted goodness.</p>
@@ -170,7 +170,9 @@ end
       yield if block_given?
     end
   end
-end</code></pre></noscript></div>
+end
+
+connection = Excon.new('http://icanhascheezburger.com/', :instrumentor =&gt; SimpleInstrumentor)</code></pre></noscript></div>
 
 
 <h2>Go forth and conquer</h2>
