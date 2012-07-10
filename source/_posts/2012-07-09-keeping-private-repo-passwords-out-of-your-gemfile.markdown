@@ -5,12 +5,13 @@ date: 2012-07-09 11:25
 comments: true
 categories: ruby, bundler, secuirty
 ---
-Suppose you've got your own private gem repository for your company's internal
-rubygems.  The Gemfile for one of your internal projects might look like this:
+
+Suppose your company has a private gem repository for your internal rubygems.
+The Gemfile for one of your internal projects might look like this:
 
 ``` ruby Gemfile
 source :rubygems
-source 'http://dhh:wizard@rubygems.mycorp.us/'
+source 'http://dhh:wizard@gems.mycorp.us/'
 
 gem 'sinatra'
 gem 'haml'
@@ -69,7 +70,7 @@ BUNDLE_DISABLE_SHARED_GEMS: '1'
 Let's add our private repo to the config:
 
 ``` sh
-% bundle config private_gem_server 'http://dhh:wizard@rubygems.mycorp.us/'
+% bundle config private_gem_server 'http://dhh:wizard@gems.mycorp.us/'
 ```
 
 Now the Bundler config looks like this:
@@ -78,7 +79,7 @@ Now the Bundler config looks like this:
 ---
 BUNDLE_PATH: vendor/bundle
 BUNDLE_DISABLE_SHARED_GEMS: '1'
-BUNDLE_PRIVATE_GEM_SERVER: http://dhh:wizard@rubygems.mycorp.us/
+BUNDLE_PRIVATE_GEM_SERVER: http://dhh:wizard@gems.mycorp.us/
 ```
 
 ## Tying it all together
